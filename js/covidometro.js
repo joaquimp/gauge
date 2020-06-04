@@ -1,12 +1,16 @@
 
 function onDocumentReady() {
+
+    const url = "data.json";
+
+    // Default data
     var configuration = {
         size: 300,
-        clipWidth: 300,
-        clipHeight: 300,
+        clipWidth: 302,
+        clipHeight: 170,
         ringWidth: 60,
         maxValue: 100,
-        transitionMs: 1000,
+        transitionMs: 4000,
         sections: {
             gaugeValues: [0, 50, 70, 80, 90, 100],
             sectionsSize: [.5, .2, .1, .1, .1],
@@ -18,7 +22,7 @@ function onDocumentReady() {
     var powerGauge = undefined;
 
     function start() {
-        d3.json("example.json", function (err, json) {
+        d3.json(url, function (err, json) {
             const value = json.value;
             let gaugeValues = json.fases.values;
             const sectionsSize = gaugeValues.map(function (num) { return num / 100; })
@@ -43,7 +47,7 @@ function onDocumentReady() {
 
             // every few seconds update reading values
             powerGauge.update(value);
-            
+
             setInterval(function () {
                 updateReadings();
             }, 1000 * 10);
@@ -51,7 +55,7 @@ function onDocumentReady() {
     }
 
     function updateReadings() {
-        d3.json("example.json", function(err, json) {
+        d3.json(url, function(err, json) {
             const value = json.value;
             powerGauge.update(value);
         });

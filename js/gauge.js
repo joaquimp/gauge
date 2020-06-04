@@ -7,19 +7,17 @@ var gauge = function (container, configuration) {
         ringInset: 20,
         ringWidth: 20,
 
-        pointerWidth: 10,
-        pointerTailLength: 5,
+        pointerWidth: 20,
+        pointerTailLength: 10,
         pointerHeadLengthPercent: 0.9,
 
         minValue: 0,
-        maxValue: 10,
+        maxValue: 100,
 
         minAngle: -90,
         maxAngle: 90,
 
         transitionMs: 750,
-
-        majorTicks: 10,
         labelFormat: d3.format('d'),
         labelInset: 10,
 
@@ -29,14 +27,11 @@ var gauge = function (container, configuration) {
             sectionsLegends: ['fechado', 'fase 1', 'fase 2', 'fase 3'],
             sectionsColors: ['red', 'organge', 'yellow', 'green'],
         },
-
-        // arcColorFn: d3.scaleSequential().domain([0, 1]).interpolator(d3.interpolateTurbo)
     };
+
     var range = undefined;
     var r = undefined;
     var pointerHeadLength = undefined;
-    // var value = 0;
-
     var svg = undefined;
     var arc = undefined;
     var scale = undefined;
@@ -44,18 +39,25 @@ var gauge = function (container, configuration) {
     var tickData = undefined;
     var pointer = undefined;
 
-    // var donut = d3.pie();
-
+    /////////////////////////////
+    // Utility methods
+    /////////////////////////////
     function deg2rad(deg) {
         return deg * Math.PI / 180;
     }
 
-    // function newAngle(d) {
-    //     var ratio = scale(d);
-    //     var newAngle = config.minAngle + (ratio * range);
-    //     return newAngle;
-    // }
+    function centerTranslation() {
+        return 'translate(' + r + ',' + r + ')';
+    }
 
+    function isRendered() {
+        return (svg !== undefined);
+    }
+
+
+    /////////////////////////////
+    // Adjust gouge parameters
+    /////////////////////////////
     function configure(configuration) {
         var prop = undefined;
         for (prop in configuration) {
@@ -94,16 +96,8 @@ var gauge = function (container, configuration) {
                 return deg2rad(config.minAngle + (ratio * range));
             });
     }
-    that.configure = configure;
 
-    function centerTranslation() {
-        return 'translate(' + r + ',' + r + ')';
-    }
-
-    function isRendered() {
-        return (svg !== undefined);
-    }
-    that.isRendered = isRendered;
+    
 
     function render(newValue) {
         svg = d3.select(container)
@@ -139,6 +133,7 @@ var gauge = function (container, configuration) {
             })
             .text(config.labelFormat);
 
+        // Render Gauge Pointer
         var lineData = [[config.pointerWidth / 2, 0],
         [0, -pointerHeadLength],
         [-(config.pointerWidth / 2), 0],
@@ -148,26 +143,27 @@ var gauge = function (container, configuration) {
         var pg = svg.append('g').data([lineData])
             .attr('class', 'pointer')
             .attr('transform', centerTx);
-
         pointer = pg.append('path')
             .attr('d', pointerLine/*function(d) { return pointerLine(d) +'Z';}*/)
             .attr('transform', 'rotate(' + config.minAngle + ')');
 
 
-        //////////////////////////////////////////
-        // Definindo a legenda
-        //////////////////////////////////////////
+        //////////////////
+        // Generate Legend
+        
         // select the svg area
-        var Svg = d3.select("#legends")
+        var Svg = d3.select("#legends").append("svg")
+        .attr('height', legendsText.length * 25)
+        .attr('width', "150px")
 
         // Add one dot in the legend for each name.
         Svg.selectAll("mydots")
             .data(legendsText)
             .enter()
             .append("circle")
-            .attr("cx", 100)
+            .attr("cx", 7)
             // 100 is where the first dot appears. 25 is the distance between dots
-            .attr("cy", function (d, i) { return 100 + i * 25 })
+            .attr("cy", function (d, i) { return 7 + i * 25 })
             .attr("r", 7)
             .style("fill", function (d, i) {
                 return color[i]
@@ -178,16 +174,19 @@ var gauge = function (container, configuration) {
             .data(legendsText)
             .enter()
             .append("text")
-            .attr("x", 120)
+            .attr("x", 25)
             // 100 is where the first dot appears. 25 is the distance between dots
-            .attr("y", function (d, i) { return 100 + i * 25 })
+            .attr("y", function (d, i) { return 7 + i * 25 })
             .text(function (d) { return d })
             .attr("text-anchor", "left")
             .style("alignment-baseline", "middle")
 
         update(newValue === undefined ? 0 : newValue);
     }
-    that.render = render;
+    
+    /////////////////////////////
+    // Update gauge data
+    /////////////////////////////
     function update(newValue, newConfiguration) {
         if (newConfiguration !== undefined) {
             configure(newConfiguration);
@@ -199,8 +198,19 @@ var gauge = function (container, configuration) {
             .ease(d3.easeElastic)
             .attr('transform', 'rotate(' + newAngle + ')');
     }
-    that.update = update;
 
+    /////////////////////////////
+    // Public methods
+    /////////////////////////////
+    that.configure = configure;
+    that.isRendered = isRendered;
+    that.update = update;
+    that.render = render;
+
+    
+    /////////////////////////////
+    // Start configuration
+    /////////////////////////////
     configure(configuration);
 
     return that;
