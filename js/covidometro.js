@@ -40,8 +40,6 @@ function onDocumentReady() {
             configuration.sections.sectionsLegends = sectionLegends;
             configuration.sections.sectionsColors = sectionColors;
 
-            console.log(configuration);
-
             powerGauge = gauge('#power-gauge', configuration);
             powerGauge.render();
 
