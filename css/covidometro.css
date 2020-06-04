@@ -9,7 +9,7 @@ html {
 }
 
 #power-gauge {
-    /* background-color: aqua; */
+    font-family: monospace;
     margin-right: 60px;
 }
 
@@ -30,13 +30,12 @@ html {
 }
 
 #legends {
-    /* background-color: #8b8988; */
+    font-family: monospace;
     margin: 0px;
     padding: 0px;
 }
 
 #gauge {
-    /* background-color: #b64011; */
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
