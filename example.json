@@ -1,0 +1,8 @@
+{
+    "value": 46.3,
+    "fases": {
+        "names": ["Fechado?", "Fase 1", "Fase 2", "Aberto"],
+        "colors": ["purple", "orange", "yellow", "green", "blue"],
+        "values": [70, 10, 10, 10]
+    }
+}

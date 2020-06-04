@@ -1,0 +1,30 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 32px;
+}
+
+#power-gauge g.arc {
+    fill: steelblue;
+}
+
+#power-gauge g.pointer {
+    fill: #000000;
+    stroke: #000000;
+}
+
+#power-gauge g.label text {
+    text-anchor: middle;
+    font-size: 14px;
+    font-weight: bold;
+    fill: #666;
+}
+
+.legends {
+    display: flex;
+}
+
+.legend rect {
+    width: 10px;
+    height: 10px;
+    background-color: #b64011;
+}
