@@ -1,8 +1,8 @@
 {
-    "value": 46.3,
+    "value": 53.9,
     "fases": {
         "names": ["Fechada", "Fase 1", "Fase 2", "Fase 3", "Aberta"],
         "colors": ["#FE1016", "#FEB82D", "#FFFF3B", "#88C952", "#0FA6EA"],
-        "values": [50, 20, 10, 10, 10]
+        "values": [60, 20, 10, 5, 5]
     }
 }
