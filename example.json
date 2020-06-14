@@ -19,30 +19,35 @@
 	"fases": [{
 			"pos": 0,
 			"legend": "Fechada",
-			"limit": 60
+			"limit": 60,
+			"color": "#FE1016"
 		},
 		{
 			"pos": 1,
 			"legend": "Aberta Fase 1",
-			"limit": 80
+			"limit": 80,
+			"color": "#FEB82D"
 		},
 		{
 			"pos": 2,
 			"legend": "Aberta Fase 2",
-			"limit": 90
+			"limit": 90,
+			"color": "#FFFF3B"
 		},
 		{
 			"pos": 3,
 			"legend": "Aberta Fase 3",
-			"limit": 95
+			"limit": 95,
+			"color": "#88C952"
 		},
 		{
 			"pos": 4,
 			"legend": "Aberta sem restrições",
-			"limit": 100
+			"limit": 100,
+			"color": "#0FA6EA"
 		}
 	],
-	"result": [{
+	"results": [{
 			"city": "SP",
 			"date": "2020-06-12",
 			"value": 51.84188084757038
