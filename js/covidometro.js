@@ -1,7 +1,8 @@
 
 function onDocumentReady() {
 
-    const url = "data.json";
+    // const url = "data.json";
+    const url = "https://covidometro-dev.herokuapp.com/covidometro/indexes";
 
     // Default data
     var configuration = {
@@ -23,16 +24,27 @@ function onDocumentReady() {
 
     function start() {
         d3.json(url, function (err, json) {
-            const value = json.value;
-            let gaugeValues = json.fases.values;
-            const sectionsSize = gaugeValues.map(function (num) { return num / 100; })
-            const sectionLegends = json.fases.names;
-            const sectionColors = json.fases.colors;
+            // último dado
+            let index = json.results[0].value;
+            let gaugeValues = [0];
+            let sectionsSize = [];
+            let sectionLegends = [];
+            let sectionColors = [];
 
-            // Adjusting values
-            gaugeValues.unshift(0);
-            for (let i = 1; i < gaugeValues.length; i++) {
-                gaugeValues[i] = gaugeValues[i - 1] + gaugeValues[i];
+            for(var i=0; i<json.fases.length; i++) {
+                const element = json.fases[i];
+                gaugeValues.push(element.limit);
+                
+                if (i==0) {
+                    const size = element.limit/100;
+                    sectionsSize.push(size);
+                } else {
+                    const size = (element.limit - json.fases[i - 1].limit) / 100;
+                    sectionsSize.push(size);
+                }
+
+                sectionLegends.push(element.legend);
+                sectionColors.push(element.color);
             }
 
             configuration.sections.gaugeValues = gaugeValues;
@@ -44,20 +56,20 @@ function onDocumentReady() {
             powerGauge.render();
 
             // every few seconds update reading values
-            powerGauge.update(value);
+            powerGauge.update(index);
 
-            setInterval(function () {
-                updateReadings();
-            }, 1000 * 10);
+            // setInterval(function () {
+            //     updateReadings();
+            // }, 1000 * 10);
         });
     }
 
-    function updateReadings() {
-        d3.json(url, function(err, json) {
-            const value = json.value;
-            powerGauge.update(value);
-        });
-    }
+    // function updateReadings() {
+    //     d3.json(url, function(err, json) {
+    //         const value = json.value;
+    //         powerGauge.update(value);
+    //     });
+    // }
 
     start();
 }

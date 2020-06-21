@@ -12,13 +12,18 @@
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <link rel="stylesheet" href="css/covidometro.css">
 </head>
-<body>
-    <section id="gauge">
-        <span id="power-gauge"></span>
-        <span id="legends"></span>
-    </section>
 
+<body>
+    <div id="covidometro">
+        <div class="elementor-widget-wrap">
+            <div id="power-gauge"></div>
+            <div id="legends"></div>
+            <div id="historical_data"></div>
+        </div>
+    </div>
     <script src="js/gauge.js"></script>
     <script src="js/covidometro.js"></script>
+    <script src="js/line.js"></script>
 </body>
-</html> 
+
+</html>

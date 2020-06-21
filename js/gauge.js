@@ -147,6 +147,12 @@ var gauge = function (container, configuration) {
             .attr('d', pointerLine/*function(d) { return pointerLine(d) +'Z';}*/)
             .attr('transform', 'rotate(' + config.minAngle + ')');
 
+        svg.select(".pointer")
+            .append("text")
+            .attr("class", "gauge-index")
+            .style("text-anchor", "middle")
+            .attr("dy", function () { return 20; })
+            .text("00.0")
 
         //////////////////
         // Generate Legend
@@ -191,12 +197,16 @@ var gauge = function (container, configuration) {
         if (newConfiguration !== undefined) {
             configure(newConfiguration);
         }
+        
         var ratio = scale(newValue);
         var newAngle = config.minAngle + (ratio * range);
         pointer.transition()
             .duration(config.transitionMs)
             .ease(d3.easeElastic)
             .attr('transform', 'rotate(' + newAngle + ')');
+
+        d3.selectAll(".gauge-index")
+            .text(newValue.toFixed(1))
     }
 
     /////////////////////////////

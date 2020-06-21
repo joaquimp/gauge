@@ -9,8 +9,11 @@ html {
 }
 
 #power-gauge {
-    font-family: monospace;
+    font-size: 12px;
     margin-right: 60px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 #power-gauge g.arc {
@@ -24,19 +27,81 @@ html {
 
 #power-gauge g.label text {
     text-anchor: middle;
-    font-size: 14px;
+    font-size: 11px;
     font-weight: bold;
-    fill: #666;
+    fill: #000;
 }
 
 #legends {
-    font-family: monospace;
-    margin: 0px;
+    font-size: 12px;
+    /* margin: 0px; */
+    margin-top: 40px;
     padding: 0px;
+	align-items: flex-end;
+	display: flex;
 }
 
 #gauge {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-end;
+}
+
+.gauge-index {
+    font-weight: lighter;
+}
+
+#covidometro .elementor-widget-wrap {
+	justify-content: center;
+	flex-direction: row;
+}
+
+
+/*Gráfico de linhas*/
+#historical_data {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.label {
+    fill: #000;
+    font-size: 12px;
+}
+
+.shadow {
+    stroke: #fff;
+    font: 12px;
+    stroke-width: 6px;
+    opacity: 1
+}
+
+.line {
+    fill: none;
+    stroke: #000;
+    stroke-width: 2px;
+}
+
+.grid line {
+    stroke: lightgrey;
+    stroke-opacity: 0.7;
+    shape-rendering: crispEdges;
+}
+
+.dot {
+    stroke: #000; /*#aaa*/;
+    stroke-width: 3;
+    fill: #fff
+}
+
+.grid path {
+    stroke-width: 0;
+}
+
+.fase_line {
+    stroke: #F0F;
+    stroke-width: 1px;
+    stroke-opacity: 1.0;
+    /*stroke-dasharray: 5;*/
+    opacity: 1.0;
 }
