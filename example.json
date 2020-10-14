@@ -1,37 +1,183 @@
-[
-    {
-        "city": "SP",
-        "date": "2020-06-12",
-        "value": 51.84188084757038
-    },
-    {
-        "city": "SP",
-        "date": "2020-06-11",
-        "value": 53.25463930672696
-    },
-    {
-        "city": "SP",
-        "date": "2020-06-10",
-        "value": 54.03470604847978
-    },
-    {
-        "city": "SP",
-        "date": "2020-06-09",
-        "value": 56.865273939778746
-    },
-    {
-        "city": "SP",
-        "date": "2020-06-08",
-        "value": 53.92059930750882
-    },
-    {
-        "city": "SP",
-        "date": "2020-06-07",
-        "value": 53.61249135060045
-    },
-    {
-        "city": "SP",
-        "date": "2020-06-06",
-        "value": 0
-    }
-]
+{
+    "version": 3,
+    "icuMax": 100,
+    "icuMin": 60,
+    "icuWeight": 0.1,
+    "newCasesMax": 5031,
+    "newCasesMin": 0,
+    "newCasesWeight": 0.4,
+    "newDeathsMax": 344,
+    "newDeathsMin": 0,
+    "newDeathsWeight": 0.2,
+    "isolationRateMax": 40,
+    "isolationRateMin": 70,
+    "isolationRateWeight": 0.1,
+    "rValueMax": 3,
+    "rValueMin": 0.5,
+    "rValueWeight": 0.2,
+    "numberDaysAvarage": 7,
+    "fases": [
+        {
+            "pos": 0,
+            "legend": "Fechada",
+            "limit": 60,
+            "color": "#FE1016"
+        },
+        {
+            "pos": 1,
+            "legend": "Aberta Fase 1",
+            "limit": 80,
+            "color": "#FEB82D"
+        },
+        {
+            "pos": 2,
+            "legend": "Aberta Fase 2",
+            "limit": 90,
+            "color": "#FFFF3B"
+        },
+        {
+            "pos": 3,
+            "legend": "Aberta Fase 3",
+            "limit": 95,
+            "color": "#88C952"
+        },
+        {
+            "pos": 4,
+            "legend": "Aberta sem restrições",
+            "limit": 100,
+            "color": "#0FA6EA"
+        }
+    ],
+    "results": [
+        {
+            "city": "SP",
+            "date": "2020-6-19",
+            "value": 43
+        },
+        {
+            "city": "SP",
+            "date": "2020-6-18",
+            "value": 48.05872305988585
+        },
+        {
+            "city": "SP",
+            "date": "2020-6-17",
+            "value": 48.6459522389755
+        },
+        {
+            "city": "SP",
+            "date": "2020-6-16",
+            "value": 49.89955589630008
+        },
+        {
+            "city": "SP",
+            "date": "2020-6-15",
+            "value": 51.59074310702218
+        },
+        {
+            "city": "SP",
+            "date": "2020-6-14",
+            "value": 46.7
+        },
+        {
+            "city": "SP",
+            "date": "2020-6-13",
+            "value": 49.8
+        },
+        {
+            "city": "SP",
+            "date": "2020-6-12",
+            "value": 51.9
+        },
+        {
+            "city": "SP",
+            "date": "2020-6-11",
+            "value": 53.4
+        },
+        {
+            "city": "SP",
+            "date": "2020-6-10",
+            "value": 54.1
+        },
+        {
+            "city": "SP",
+            "date": "2020-6-9",
+            "value": 57.1
+        },
+        {
+            "city": "SP",
+            "date": "2020-6-8",
+            "value": 54.2
+        },
+        {
+            "city": "SP",
+            "date": "2020-6-7",
+            "value": 53.8
+        },
+        {
+            "city": "SP",
+            "date": "2020-6-6",
+            "value": 53.8
+        },
+        {
+            "city": "SP",
+            "date": "2020-6-5",
+            "value": 53.8
+        },
+        {
+            "city": "SP",
+            "date": "2020-6-4",
+            "value": 53.8
+        },
+        {
+            "city": "SP",
+            "date": "2020-6-3",
+            "value": 53.8
+        },
+        {
+            "city": "SP",
+            "date": "2020-6-2",
+            "value": 53.8
+        },
+        {
+            "city": "SP",
+            "date": "2020-6-1",
+            "value": 53.8
+        },
+        {
+            "city": "SP",
+            "date": "2020-5-31",
+            "value": 53.8
+        },
+        {
+            "city": "SP",
+            "date": "2020-5-30",
+            "value": 53.8
+        },
+        {
+            "city": "SP",
+            "date": "2020-5-29",
+            "value": 53.8
+        },
+        {
+            "city": "SP",
+            "date": "2020-5-28",
+            "value": 53.8
+        },
+        {
+            "city": "SP",
+            "date": "2020-5-27",
+            "value": 53.8
+        },
+        {
+            "city": "SP",
+            "date": "2020-5-26",
+            "value": 53.8
+        },
+        {
+            "city": "SP",
+            "date": "2020-5-25",
+            "value": 53.8
+        }
+    ]
+}

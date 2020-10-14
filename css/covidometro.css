@@ -1,19 +1,9 @@
-body {
-    font-family: Helvetica, Arial, sans-serif;
-    margin: 32px;
-    height: 100%;
-}
-
-html {
-    height: 100%;
-}
-
 #power-gauge {
     font-size: 12px;
     margin-right: 60px;
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 #power-gauge g.arc {
@@ -34,21 +24,15 @@ html {
 
 #legends {
     font-size: 12px;
-    /* margin: 0px; */
     margin-top: 40px;
     padding: 0px;
 	align-items: flex-end;
 	display: flex;
 }
 
-#gauge {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-
 .gauge-index {
     font-weight: lighter;
+    margin-bottom: 2px;
 }
 
 #covidometro .elementor-widget-wrap {
@@ -89,7 +73,7 @@ html {
 }
 
 .dot {
-    stroke: #000; /*#aaa*/;
+    stroke: #000;
     stroke-width: 3;
     fill: #fff
 }
@@ -100,8 +84,26 @@ html {
 
 .fase_line {
     stroke: #F0F;
-    stroke-width: 1px;
+    stroke-width: 4px;
     stroke-opacity: 1.0;
-    /*stroke-dasharray: 5;*/
     opacity: 1.0;
+}
+
+#covidometro-table {
+    display: flex;
+    justify-content: center;
+}
+
+#covidometro-table table  {
+  border-spacing: 0px;
+}
+
+#covidometro-table table td {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+#covidometro-table table th {
+  border: 1px solid black;
+  padding: 10px;
 }

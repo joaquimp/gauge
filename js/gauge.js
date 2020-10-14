@@ -160,7 +160,7 @@ var gauge = function (container, configuration) {
         // select the svg area
         var Svg = d3.select("#legends").append("svg")
         .attr('height', legendsText.length * 25)
-        .attr('width', "150px")
+        .attr('width', "155px")
 
         // Add one dot in the legend for each name.
         Svg.selectAll("mydots")

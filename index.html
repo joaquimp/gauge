@@ -11,19 +11,42 @@
     <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <link rel="stylesheet" href="css/covidometro.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            margin: 32px;
+            height: 100%;
+        }
+
+        html {
+            height: 100%;
+        }
+    </style>
 </head>
 
 <body>
     <div id="covidometro">
-        <div class="elementor-widget-wrap">
-            <div id="power-gauge"></div>
-            <div id="legends"></div>
-            <div id="historical_data"></div>
-        </div>
+        <div class="elementor-widget-wrap"></div>
     </div>
+    <div id="covidometro-linha">
+        <div class="elementor-widget-container"></div>
+    </div>
+    <div id="covidometro-table">
+    </div>
+
     <script src="js/gauge.js"></script>
+    <script src="js/guage_chart.js"></script>
+    <script src="js/line_chart.js"></script>
+    <script src="js/parameters_table.js"></script>
     <script src="js/covidometro.js"></script>
-    <script src="js/line.js"></script>
+
+    <script>
+        var covid = drawCovidometro();
+        covid.start('#covidometro .elementor-widget-wrap',
+                    '#covidometro-linha .elementor-widget-container',
+                    '#covidometro-table');
+    </script>
 </body>
 
 </html>
